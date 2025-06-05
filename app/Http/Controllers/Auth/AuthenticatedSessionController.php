@@ -23,7 +23,7 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request)
     {
         $request->authenticate();
 
@@ -31,12 +31,13 @@ class AuthenticatedSessionController extends Controller
 
         $user = Auth::user();
                 if($user->role == 'user'){
+            return redirect()->route('home');
 
         }else{
-    return redirect()->route('home');
+        return redirect(RouteServiceProvider::HOME);
 
         }
-        return redirect(RouteServiceProvider::HOME);
+
     }
 
     /**
