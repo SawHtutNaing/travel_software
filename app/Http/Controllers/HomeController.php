@@ -27,15 +27,18 @@ class HomeController extends Controller
     {
         $query = Tour::query();
 
-        if ($request->has('destination') && $request->destination) {
-            $query->where('destination', 'like', '%' . $request->destination . '%');
+        if ($request->has('name') && $request->name) {
+
+            $query->where('name', 'like', '%' . $request->name . '%');
         }
 
         if ($request->has('start_date') && $request->start_date) {
+
             $query->where('start_date', '>=', $request->start_date);
         }
 
         if ($request->has('end_date') && $request->end_date) {
+
             $query->where('end_date', '<=', $request->end_date);
         }
 

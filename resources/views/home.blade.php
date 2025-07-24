@@ -32,8 +32,8 @@
         <form action="{{ route('search') }}" method="GET" class="bg-white p-8 rounded-xl shadow-lg">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                    <label for="destination" class="block text-gray-700 font-medium mb-2">Destination</label>
-                    <input type="text" name="destination" id="destination" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" value="{{ request('destination') }}">
+                    <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                    <input type="text" name="name" id="name" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" value="{{ request('destination') }}">
                 </div>
                 <div>
                     <label for="start_date" class="block text-gray-700 font-medium mb-2">Start Date</label>
@@ -68,7 +68,7 @@
                     <p class="text-gray-500 mb-1">From: {{ $tour->start_date }} to {{ $tour->end_date }}</p>
                     <p class="text-gray-500 mb-4">Available Spots: {{ $tour->available_spots }}</p>
                     @auth
-                        <a href="{{ route('bookings.create', $tour) }}" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300">View Details</a>
+                        <a href="{{ route('bookings.create', $tour) }}" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300">Booking</a>
                     @else
                         <a href="{{ route('login') }}" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300">Login to Book</a>
                     @endauth
